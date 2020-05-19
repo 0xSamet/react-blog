@@ -1,18 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Container } from 'react-bootstrap';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import Home from './components/Home'
+import NavBar from './components/NavBar'
+import Footer from './components/Footer'
+import Contact from './components/Contact'
+import PostReview from './components/PostReview'
+import Posts from './components/Posts'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Hello Worldd
-        </p>
-      </header>
-    </div>
-  );
+const App = () => {
+   return (
+      <Router >
+         <NavBar/>
+         <Container style={{marginTop:10}}>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/posts" component={Posts} />
+            <Route exact path="/posts/:categoryId" component={Posts} />
+            <Route exact path="/post/:id" component={PostReview} />
+            <Route exact path="/contact" component={Contact} />
+         </Container>
+         <Footer/>
+      </Router>
+   )
 }
 
-export default App;
+export default App
