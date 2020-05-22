@@ -23,13 +23,13 @@ const Posts = (props) => {
     useEffect(() => {
         const getPosts = () => {
             if (categoryId){
-                return axios.get(`http://localhost:3001/posts?category=${categoryId}`)
+                return axios.get(`https://simple-mongo-api.herokuapp.com/posts/?category=${categoryId}`)
             }else{
-                return axios.get('http://localhost:3001/posts')
+                return axios.get('https://simple-mongo-api.herokuapp.com/posts/')
             }  
         }
 
-        const getCategories = () => axios.get('http://localhost:3001/categories');
+        const getCategories = () => axios.get('https://simple-mongo-api.herokuapp.com/categories/');
 
         axios.all([getPosts(),getCategories()])
         .then((response) => {
