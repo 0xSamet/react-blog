@@ -7,7 +7,7 @@ const PostReview = (props) => {
     const postId = props.match.params.id
 
     useEffect(() => {
-        fetch(`http://localhost:3001/posts/${postId}`)
+        fetch(`https://simple-mongo-api.herokuapp.com/posts/${postId}`)
         .then((response) => {
             return response.json()
         })
