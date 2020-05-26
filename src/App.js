@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container } from 'react-bootstrap';
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from './components/Home'
 import NavBar from './components/NavBar'
 import Footer from './components/Footer'
@@ -13,11 +13,13 @@ const App = () => {
       <Router >
          <NavBar/>
          <Container style={{marginTop:10}}>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/posts" component={Posts} />
-            <Route exact path="/posts/:categoryId" component={Posts} />
-            <Route exact path="/post/:id" component={PostReview} />
-            <Route exact path="/contact" component={Contact} />
+            <Switch>
+               <Route exact path="/" component={Home} />
+               <Route exact path="/posts" component={Posts} />
+               <Route exact path="/posts/:categoryId" component={Posts} />
+               <Route exact path="/post/:postId" component={PostReview} />
+               <Route exact path="/contact" component={Contact} />
+            </Switch>
          </Container>
          <Footer/>
       </Router>

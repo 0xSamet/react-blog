@@ -21,6 +21,7 @@ const Posts = (props) => {
     const paginate = pageNumber => setCurrentPage(pageNumber)
 
     useEffect(() => {
+        
         const getPosts = () => {
             if (categoryId){
                 return axios.get(`https://simple-mongo-api.herokuapp.com/posts/?category=${categoryId}`)
